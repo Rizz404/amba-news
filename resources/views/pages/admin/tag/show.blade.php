@@ -1,16 +1,16 @@
-<x-admin-layout title="Category Details">
+<x-admin-layout title="Tag Details">
     <div class="container max-w-4xl mx-auto py-6">
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-semibold">Category Details</h1>
+            <h1 class="text-2xl font-semibold">Tag Details</h1>
             <div class="flex space-x-2">
-                <x-ui.link-button href="{{ route('admin.categories.index') }}">
+                <x-ui.link-button href="{{ route('admin.tags.index') }}">
                     Kembali
                 </x-ui.link-button>
-                <x-ui.link-button href="{{ route('admin.categories.edit', $category) }}">
+                <x-ui.link-button href="{{ route('admin.tags.edit', $tag) }}">
                     Edit
                 </x-ui.link-button>
-                <form action="{{ route('admin.categories.destroy', $category) }}" method="POST"
-                    onsubmit="return confirm('Are u sure wanna delete dis category?')">
+                <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST"
+                    onsubmit="return confirm('Are u sure wanna delete dis tag?')">
                     @csrf
                     @method('DELETE')
                     <x-ui.button type="submit" class="bg-red-500 hover:bg-red-600">
@@ -29,7 +29,7 @@
                                 <p class="text-sm text-teto-dark-text">
                                     Name
                                 </p>
-                                <p class="font-medium">{{ $category->name }}</p>
+                                <p class="font-medium">{{ $tag->name }}</p>
                             </div>
 
                             <div>
@@ -37,7 +37,7 @@
                                     Dibuat
                                 </p>
                                 <p class="font-medium">
-                                    {{ $category->created_at->format('d F Y H:i') }}
+                                    {{ $tag->created_at->format('d F Y H:i') }}
                                 </p>
                             </div>
 
@@ -45,19 +45,7 @@
                                 <p class="text-sm text-teto-dark-text">Terakhir
                                     Diperbarui</p>
                                 <p class="font-medium">
-                                    {{ $category->updated_at->format('d F Y H:i') }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <p class="text-sm text-teto-dark-text mb-2">
-                                Deskripsi</p>
-                            <div class="bg-teto-cream rounded-md p-4">
-                                <p class="">
-                                    {{ $category->description ?? 'Tidak ada deskripsi' }}
+                                    {{ $tag->updated_at->format('d F Y H:i') }}
                                 </p>
                             </div>
                         </div>

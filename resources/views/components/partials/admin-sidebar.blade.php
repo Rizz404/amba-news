@@ -5,80 +5,57 @@
     x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full">
     <div class="flex flex-col flex-grow h-full">
         <div class="flex items-center flex-shrink-0 px-4 pt-4">
-            {{-- <a href="{{ route('admin.dashboard.index') }}" class="flex items-center">
+            <a href="{{ route('admin.dashboard.index') }}" class="flex items-center">
                 <span class="text-xl font-bold text-teto-cream font-sans">Admin
                     Panel</span>
-            </a> --}}
+            </a>
             <button @click="sidebarOpen = false"
                 class="ml-auto lg:hidden text-teto-cream hover:text-teto-accent focus:outline-none"
-                {{-- Hidden on lg and up --}} aria-label="Close sidebar">
+                aria-label="Close sidebar">
                 <i class="fas fa-times fa-lg"></i>
             </button>
         </div>
 
         <nav class="flex-1 mt-6 px-2 space-y-1 overflow-y-auto pb-4">
             {{-- * Dashboard --}}
-            {{-- <a href="{{ route('admin.dashboard.index') }}"
+            <a href="{{ route('admin.dashboard.index') }}"
                 class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.dashboard.index') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
                 <i
                     class="fas fa-tachometer-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.dashboard.index') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
                 Dashboard
-            </a> --}}
-            {{-- (Nav items lainnya tetap sama) --}}
-            {{-- * User & Siswa --}}
-            {{-- <a href="{{ route('admin.users.index') }}"
-                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.users*') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
+            </a>
+            {{-- * Categories --}}
+            <a href="{{ route('admin.categories.index') }}"
+                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.categories.index') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
                 <i
-                    class="fas fa-users mr-3 h-5 w-5 {{ request()->routeIs('admin.users*') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
-                User & Siswa
-            </a> --}}
-            {{-- * Criterias --}}
-            {{-- <a href="{{ route('admin.criterias.index') }}"
-                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.criterias*') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
+                    class="fas fa-tachometer-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.categories.index') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
+                Catagories
+            </a>
+            {{-- * Tags --}}
+            <a href="{{ route('admin.tags.index') }}"
+                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.tags.index') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
                 <i
-                    class="fas fa-list-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.criterias*') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
-                Kriteria
-            </a> --}}
-            {{-- * College Majors --}}
-            {{-- <a href="{{ route('admin.college-majors.index') }}"
-                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.college-majors*') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
+                    class="fas fa-tachometer-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.tags.index') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
+                Tags
+            </a>
+            {{-- * Articles --}}
+            <a href="{{ route('admin.articles.index') }}"
+                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.articles.index') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
                 <i
-                    class="fas fa-book-open mr-3 h-5 w-5 {{ request()->routeIs('admin.college-majors*') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
-                Jurusan Kuliah
-            </a> --}}
-            {{-- * Major Characteristics --}}
-            {{-- <a href="{{ route('admin.major-characteristics.index') }}"
-                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.major-characteristics*') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
-                <i
-                    class="fas fa-bolt mr-3 h-5 w-5 {{ request()->routeIs('admin.major-characteristics*') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
-                Karakteristik Jurusan
-            </a> --}}
-            {{-- * Student Scores --}}
-            {{-- <a href="{{ route('admin.student-scores.index') }}"
-                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.student-scores*') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
-                <i
-                    class="fas fa-chart-bar mr-3 h-5 w-5 {{ request()->routeIs('admin.student-scores*') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
-                Nilai Siswa
-            </a> --}}
-            {{-- * Universities --}}
-            {{-- <a href="{{ route('admin.universities.index') }}"
-                class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.universities*') ? 'bg-teto-primary-active text-teto-cream' : 'text-teto-cream hover:bg-teto-primary-active hover:text-teto-cream' }}">
-                <i
-                    class="fas fa-university mr-3 h-5 w-5 {{ request()->routeIs('admin.universities*') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
-                Universitas
-            </a> --}}
+                    class="fas fa-tachometer-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.articles.index') ? 'text-teto-accent' : 'text-teto-pastel-pink group-hover:text-teto-accent' }}"></i>
+                Articles
+            </a>
         </nav>
 
         <div class="flex-shrink-0 mt-auto border-t border-teto-dark-active p-4">
-            {{-- <form method="POST" action="{{ route('logout') }}" class="w-full">
+            <form method="POST" action="{{ route('logout') }}" class="w-full">
                 @csrf
                 <button type="submit"
                     class="group flex items-center px-4 py-2 text-sm font-medium rounded-md text-teto-cream hover:bg-teto-primary hover:text-teto-cream w-full transition duration-150 ease-in-out cursor-pointer">
-                    <i
-                        class="fas fa-sign-out-alt mr-3 h-5 w-5 text-teto-pastel-pink group-hover:text-teto-cream"></i>
+                    <i class="fas fa-sign-out-alt mr-3 h-5 w-5 text-teto-pastel-pink group-hover:text-teto-cream"></i>
                     Logout
                 </button>
-            </form> --}}
+            </form>
         </div>
     </div>
 </div>

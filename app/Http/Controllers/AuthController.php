@@ -46,7 +46,7 @@ class AuthController extends Controller
                 'username' => $validated['username'],
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
-                'profile_picture_url_url' => "https://i.pinimg.com/736x/c6/ee/a1/c6eea122496fbe5aadc69231fddd5e2e.jpg"
+                'profile_picture_url' => "https://i.pinimg.com/736x/c6/ee/a1/c6eea122496fbe5aadc69231fddd5e2e.jpg"
             ]);
 
             return redirect()->route('login')->with('success', 'Registrasi berhasil!');

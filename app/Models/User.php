@@ -23,7 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'profile_picture_url_url',
+        'profile_picture_url',
     ];
 
     /**
@@ -47,5 +47,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
     }
 }

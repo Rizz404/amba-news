@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\CloudinaryService;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 
@@ -12,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(CloudinaryService::class, function ($app) {
+            return new CloudinaryService();
+        });
     }
 
     /**
@@ -29,5 +32,13 @@ class AppServiceProvider extends ServiceProvider
         // * Di layout parts
         Blade::component('components.partials.admin-header', 'admin-header');
         Blade::component('components.partials.admin-sidebar', 'admin-sidebar');
+
+        if (env('CURL_CA_BUNDLE')) {
+            putenv('CURL_CA_BUNDLE=' . env('CURL_CA_BUNDLE'));
+
+            if (!defined('CURLOPT_CAINFO')) {
+                define('CURLOPT_CAINFO', env('CURL_CA_BUNDLE'));
+            }
+        }
     }
 }
