@@ -28,7 +28,7 @@
                             <img class="h-40 w-40 object-contain" src="{{ $article->logo }}" alt="{{ $article->name }}">
                         @else
                             <div class="h-40 w-40 rounded-lg bg-gray-200 flex items-center justify-center">
-                                <span class="text-teto-dark-text">No Logo</span>
+                                <span class="text-text-primary">No Logo</span>
                             </div>
                         @endif
                     </div>
@@ -85,7 +85,7 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                             <div>
-                                <p class="text-sm text-teto-dark-text">Lokasi
+                                <p class="text-sm text-text-primary">Lokasi
                                 </p>
                                 <p class="font-medium">
                                     {{ $article->city }},
@@ -95,7 +95,7 @@
 
                             @if ($article->website)
                                 <div>
-                                    <p class="text-sm text-teto-dark-text">
+                                    <p class="text-sm text-text-primary">
                                         Website</p>
                                     <a href="{{ $article->website }}" target="_blank"
                                         class="text-blue-600 hover:underline font-medium">
@@ -107,9 +107,9 @@
 
                         @if ($article->description)
                             <div class="mt-4">
-                                <p class="text-sm text-teto-dark-text">Deskripsi
+                                <p class="text-sm text-text-primary">Deskripsi
                                 </p>
-                                <div class="bg-teto-cream rounded-md p-3 mt-1">
+                                <div class="bg-bg-main rounded-md p-3 mt-1">
                                     <p class="text-sm text-gray-700 ">
                                         {{ $article->description }}
                                     </p>
@@ -130,8 +130,7 @@
                 @if ($article->collegeMajors->count() > 0)
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         @foreach ($article->collegeMajors as $major)
-                            <div
-                                class="border border-gray-200 rounded-lg p-4 hover:bg-teto-cream-hover transition-colors">
+                            <div class="border border-gray-200 rounded-lg p-4 hover:bg-bg-alt transition-colors">
                                 <div class="flex justify-between">
                                     <h4 class="font-medium text-gray-900">
                                         {{ $major->major_name }}</h4>
@@ -157,13 +156,13 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="text-center py-4 text-teto-dark-text">
+                    <div class="text-center py-4 text-text-primary">
                         Belum ada jurusan yang terdaftar untuk article ini.
                     </div>
                 @endif
             </div>
 
-            <div class="px-6 py-4 bg-teto-cream border-t border-gray-200 flex justify-between items-center">
+            <div class="px-6 py-4 bg-bg-main border-t border-gray-200 flex justify-between items-center">
                 <span class="text-sm text-gray-600">Total:
                     {{ $article->collegeMajors->count() }} jurusan</span>
                 <x-ui.link-button href="{{ route('admin.college-majors.create', $article) }}" size="sm">
@@ -172,7 +171,7 @@
             </div>
         </div>
 
-        <div class="mt-6 text-sm text-teto-dark-text">
+        <div class="mt-6 text-sm text-text-primary">
             <div class="flex justify-between">
                 <div>
                     <p>Dibuat pada:

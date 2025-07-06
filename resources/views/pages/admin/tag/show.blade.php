@@ -26,14 +26,14 @@
                     <div>
                         <div class="space-y-4">
                             <div>
-                                <p class="text-sm text-teto-dark-text">
+                                <p class="text-sm text-text-primary">
                                     Name
                                 </p>
                                 <p class="font-medium">{{ $tag->name }}</p>
                             </div>
 
                             <div>
-                                <p class="text-sm text-teto-dark-text">Tanggal
+                                <p class="text-sm text-text-primary">Tanggal
                                     Dibuat
                                 </p>
                                 <p class="font-medium">
@@ -42,7 +42,7 @@
                             </div>
 
                             <div>
-                                <p class="text-sm text-teto-dark-text">Terakhir
+                                <p class="text-sm text-text-primary">Terakhir
                                     Diperbarui</p>
                                 <p class="font-medium">
                                     {{ $tag->updated_at->format('d F Y H:i') }}

@@ -39,7 +39,7 @@
                         </x-ui.dropdown>
                     </div>
 
-                    <x-ui.file-input name="featured_image_url" label="Featured Image" accept="image/*"
+                    <x-ui.file-input name="featured_image" label="Featured Image" accept="image/*"
                         helpText="Upload a square image for best results. Max size: 2MB" />
 
                     <x-ui.textarea label="Excerpt" name="excerpt" value="{{ old('excerpt') }}"

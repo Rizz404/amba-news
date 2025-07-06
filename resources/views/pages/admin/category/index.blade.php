@@ -9,7 +9,7 @@
                     <x-ui.searchbar name="search" placeholder="Cari categories..." value="{{ request('search') }}" />
 
                     <x-ui.button type="submit"
-                        class="bg-teto-primary hover:bg-teto-primary-hover text-white font-semibold rounded-md shadow-md transition ease-in-out duration-150">
+                        class="bg-primary hover:bg-primary-hover text-white font-semibold rounded-md shadow-md transition ease-in-out duration-150">
                         Cari
                     </x-ui.button>
 
@@ -22,30 +22,27 @@
 
         <div class="bg-white rounded shadow overflow-x-auto">
 
-            <table class="min-w-full divide-y divide-teto-cream">
-                <thead class="bg-teto-cream">
+            <table class="min-w-full divide-y divide-bg-main">
+                <thead class="bg-bg-main">
                     <tr>
 
-                        <th
-                            class="px-6 py-3 text-left text-xs font-medium text-teto-dark-text uppercase tracking-wider">
+                        <th class="px-6 py-3 text-left text-xs font-medium text-text-primary uppercase tracking-wider">
                             Name
                         </th>
-                        <th
-                            class="px-6 py-3 text-left text-xs font-medium text-teto-dark-text uppercase tracking-wider">
+                        <th class="px-6 py-3 text-left text-xs font-medium text-text-primary uppercase tracking-wider">
                             Slug
                         </th>
-                        <th
-                            class="px-6 py-3 text-left text-xs font-medium text-teto-dark-text uppercase tracking-wider">
+                        <th class="px-6 py-3 text-left text-xs font-medium text-text-primary uppercase tracking-wider">
                             Description
                         </th>
 
                     </tr>
                 </thead>
 
-                <tbody class="bg-white divide-y divide-teto-cream">
+                <tbody class="bg-white divide-y divide-bg-main">
                     @forelse ($categories as $category)
                         <tr onclick="window.location='{{ route('admin.categories.show', $category) }}'"
-                            class="hover:bg-teto-cream-hover cursor-pointer transition-colors duration-150">
+                            class="hover:bg-bg-alt cursor-pointer transition-colors duration-150">
 
                             <td class="px-6 py-4 whitespace-nowrap">
                                 {{ $category->name }}
@@ -59,7 +56,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3" class="px-6 py-4 text-center text-teto-dark-text-muted">
+                            <td colspan="3" class="px-6 py-4 text-center text-text-muted">
 
                                 No categories found
                             </td>

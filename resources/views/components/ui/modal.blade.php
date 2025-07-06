@@ -7,25 +7,21 @@
     'title' => null,
 ])
 
-<div x-data="{ showModal: @js($show) }"
-    x-on:keydown.escape.window="if (!@js($persistent)) showModal = false"
+<div x-data="{ showModal: @js($show) }" x-on:keydown.escape.window="if (!@js($persistent)) showModal = false"
     {{ $attributes->whereDoesntStartWith('class') }}>
 
     <!-- Backdrop -->
-    <div x-show="showModal" x-transition:enter="ease-out duration-300"
-        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-        x-transition:leave="ease-in duration-200"
+    <div x-show="showModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
         x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
         class="fixed inset-0 bg-teto-dark/60 @if ($blur) backdrop-blur-sm @endif"
-        @if (!$persistent) @click="showModal = false" @endif
-        style="z-index: 9998;">
+        @if (!$persistent) @click="showModal = false" @endif style="z-index: 9998;">
     </div>
 
     <!-- Modal Container -->
     <div x-show="showModal" x-transition:enter="ease-out duration-300"
         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-        x-transition:leave="ease-in duration-200"
+        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         class="fixed overflow-hidden transform transition-all"
@@ -45,21 +41,19 @@
         style="z-index: 9999;">
 
         <!-- Modal Content -->
-        <div class="bg-teto-cream rounded-lg shadow-xl h-full flex flex-col">
+        <div class="bg-bg-main rounded-lg shadow-xl h-full flex flex-col">
             <!-- Header -->
-            <div
-                class="px-6 py-4 border-b border-teto-metallic flex items-center justify-between">
-                <h3 class="text-lg font-sans font-bold text-teto-dark-text">
+            <div class="px-6 py-4 border-b border-teto-metallic flex items-center justify-between">
+                <h3 class="text-lg font-sans font-bold text-text-primary">
                     {{ $title }}
                 </h3>
 
                 @if (!$persistent)
                     <button @click="showModal = false"
-                        class="text-teto-metallic hover:text-teto-dark-text transition-colors">
-                        <svg class="w-5 h-5" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        class="text-teto-metallic hover:text-text-primary transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 @endif
@@ -72,8 +66,7 @@
 
             <!-- Footer -->
             @isset($footer)
-                <div
-                    class="px-6 py-4 border-t border-teto-metallic flex justify-end space-x-3">
+                <div class="px-6 py-4 border-t border-teto-metallic flex justify-end space-x-3">
                     {{ $footer }}
                 </div>
             @endisset
