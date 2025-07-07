@@ -34,6 +34,16 @@ class UserSeeder extends Seeder
             'profile_picture_url' => "https://i.pinimg.com/736x/43/08/5c/43085cd7be90d65f3e16000038f57f6f.jpg"
         ]);
 
+        // * Author
+        User::create([
+            'username' => 'author',
+            'email' => 'author@gmail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('author123'),
+            'role' => "author",
+            'profile_picture_url' => "https://i.pinimg.com/736x/f0/76/7d/f0767d1b24447d105afaa53671a98428.jpg"
+        ]);
+
         // * Regular users
         User::factory(25)->create();
     }
