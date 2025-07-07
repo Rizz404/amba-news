@@ -15,10 +15,9 @@
         @endforeach
     </div>
     <div
-        class="flex items-center justify-center min-h-screen py-12 bg-gradient-to-br from-teto-dark to-primary sm:px-4 lg:px-8">
+        class="flex items-center justify-center min-h-screen py-12 bg-gradient-to-br from-secondary to-primary sm:px-4 lg:px-8">
         <div class="mt-8 w-full max-w-sm mx-auto sm:max-w-md">
-            <div
-                class="px-6 py-8 bg-white/90 shadow-lg rounded-lg sm:px-10 backdrop-blur-sm border border-teto-light/30">
+            <div class="px-6 py-8 bg-white/90 shadow-lg rounded-lg sm:px-10 backdrop-blur-sm border border-bg-alt/30">
                 <div class="mb-6 text-center">
                     <h2 class="text-2xl font-bold text-primary">Welcome
                         Back!</h2>
@@ -39,7 +38,7 @@
                         <x-ui.input type="hidden" name="remember" value="0" />
                         <x-ui.checkbox name="remember" label="Remember me" class="text-primary" />
                         {{-- <a href="{{ route('password.request') }}"
-                            class="text-sm font-medium text-teto-dark hover:text-primary transition">
+                            class="text-sm font-medium text-primary hover:text-primary transition">
                             Forgot password?
                         </a> --}}
                     </div>
@@ -48,7 +47,7 @@
                         <span class="text-sm text-text-muted">Don't
                             have an account?</span>
                         <a href="{{ route('register') }}"
-                            class="text-sm font-semibold text-primary hover:text-teto-dark transition">
+                            class="text-sm font-semibold text-primary hover:text-primary transition">
                             Register now
                         </a>
                     </div>

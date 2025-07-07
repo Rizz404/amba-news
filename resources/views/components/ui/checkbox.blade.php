@@ -27,7 +27,7 @@
                         <input type="checkbox" id="{{ $name }}{{ $multiple ? '_' . $optValue : '' }}"
                             name="{{ $multiple ? $name . '[]' : $name }}" value="{{ $optValue }}"
                             {{ $attributes->class([
-                                'rounded border-teto-metallic text-primary focus:ring-primary focus:border-primary shadow-sm',
+                                'rounded border-secondary text-primary focus:ring-primary focus:border-primary shadow-sm',
                                 'border-primary' => $errors->has($name),
                             ]) }}>
                         @if ($errors->has($name))
@@ -51,7 +51,7 @@
                 <input type="checkbox" id="{{ $name }}_{{ $value ?? 'default' }}" name="{{ $name }}"
                     value="{{ $value ?? '1' }}" {{ $checked || old($name, $checked) ? 'checked' : '' }}
                     {{ $attributes->class([
-                        'rounded border-teto-metallic text-primary focus:ring-primary focus:border-primary shadow-sm',
+                        'rounded border-secondary text-primary focus:ring-primary focus:border-primary shadow-sm',
                         'border-primary' => $errors->has($name),
                     ]) }}>
                 @if ($errors->has($name))

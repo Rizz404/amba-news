@@ -174,7 +174,7 @@
             <!-- Clear button when files selected -->
             <div x-show="hasFiles" class="absolute top-2 right-2">
                 <button type="button" @click.stop="clearFiles()"
-                    class="bg-teto-light text-white rounded-full p-1 hover:bg-primary transition-colors">
+                    class="bg-bg-alt text-white rounded-full p-1 hover:bg-primary transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
                         </path>
@@ -196,7 +196,7 @@
                 <div class="relative">
                     <!-- Image preview -->
                     <template x-if="preview.type === 'image'">
-                        <div class="border border-teto-metallic rounded-md overflow-hidden aspect-square">
+                        <div class="border border-secondary rounded-md overflow-hidden aspect-square">
                             <img :src="preview.src" :alt="preview.name" class="w-full h-full object-cover">
                         </div>
                     </template>
@@ -204,7 +204,7 @@
                     <!-- Non-image file preview -->
                     <template x-if="preview.type === 'file'">
                         <div
-                            class="border border-teto-metallic rounded-md p-2 bg-bg-main flex flex-col items-center justify-center aspect-square">
+                            class="border border-secondary rounded-md p-2 bg-bg-main flex flex-col items-center justify-center aspect-square">
                             <!-- Document icon -->
                             <template x-if="preview.icon === 'document'">
                                 <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor"
@@ -237,7 +237,7 @@
 
                             <!-- Archive icon -->
                             <template x-if="preview.icon === 'archive'">
-                                <svg class="w-8 h-8 text-teto-dark" fill="none" stroke="currentColor"
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4">
@@ -247,7 +247,7 @@
 
                             <!-- Audio icon -->
                             <template x-if="preview.icon === 'musical-note'">
-                                <svg class="w-8 h-8 text-teto-soft-blue" fill="none" stroke="currentColor"
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3">
@@ -257,7 +257,7 @@
 
                             <!-- Video icon -->
                             <template x-if="preview.icon === 'film'">
-                                <svg class="w-8 h-8 text-teto-soft-teal" fill="none" stroke="currentColor"
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
@@ -267,7 +267,7 @@
 
                             <!-- Default file icon -->
                             <template x-if="preview.icon === 'document-blank'">
-                                <svg class="w-8 h-8 text-teto-metallic" fill="none" stroke="currentColor"
+                                <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
@@ -284,13 +284,13 @@
 
             <!-- Show "more files" indicator if more than 5 files -->
             <div x-show="fileCount > 5"
-                class="border border-teto-metallic border-dashed rounded-md flex items-center justify-center aspect-square bg-bg-main">
+                class="border border-secondary border-dashed rounded-md flex items-center justify-center aspect-square bg-bg-main">
                 <span class="text-sm font-medium text-text-primary-soft" x-text="`+${fileCount - 5} more`"></span>
             </div>
         </div>
 
         @error($dotName)
-            <p class="flex items-center mt-1 text-sm text-teto-dark">
+            <p class="flex items-center mt-1 text-sm text-primary">
                 <svg class="w-4 h-4 mr-1 text-primary" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd"
                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
