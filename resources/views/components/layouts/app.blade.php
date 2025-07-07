@@ -21,6 +21,8 @@
 
 <body class="min-h-screen overflow-y-scroll">
     {{ $slot }}
+    <script src="https://cdn.tiny.cloud/1/k6ku73yji6yg6uj9uf34s52ziusmyequhc5pb92bv8pbow9n/tinymce/7/tinymce.min.js"
+        referrerpolicy="origin"></script>
 </body>
 
 </html>

@@ -24,6 +24,11 @@ class Article extends Model
         "published_at",
     ];
 
+    protected $casts = [
+        'views_count' => 'integer',
+        'published_at' => 'datetime',
+    ];
+
     // * Implement
     public function getSlugOptions(): SlugOptions
     {

@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-semibold">Tag Details</h1>
             <div class="flex space-x-2">
                 <x-ui.link-button href="{{ route('admin.tags.index') }}">
-                    Kembali
+                    Back
                 </x-ui.link-button>
                 <x-ui.link-button href="{{ route('admin.tags.edit', $tag) }}">
                     Edit

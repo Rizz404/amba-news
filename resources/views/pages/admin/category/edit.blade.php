@@ -7,7 +7,7 @@
                     Detail
                 </x-ui.link-button>
                 <x-ui.link-button href="{{ route('admin.categories.index') }}">
-                    Kembali
+                    Back
                 </x-ui.link-button>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         value="{{ old('description', $category->description) }}" />
 
                     <div class="flex justify-end mt-6">
-                        <x-ui.button type="submit">Simpan Data</x-ui.button>
+                        <x-ui.button type="submit">Save Data</x-ui.button>
                     </div>
                 </form>
             </div>

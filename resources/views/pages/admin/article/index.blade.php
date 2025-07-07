@@ -4,10 +4,10 @@
             <h1 class="text-2xl font-semibold">Articles List</h1>
             <div class="flex space-x-2">
                 <form action="{{ route('admin.articles.index') }}" method="GET" class="flex space-x-2">
-                    <x-ui.searchbar name="search" placeholder="Cari article..." value="{{ request('search') }}" />
+                    <x-ui.searchbar name="search" placeholder="Search article..." value="{{ request('search') }}" />
 
                     <x-ui.button type="submit">
-                        Cari
+                        Search
                     </x-ui.button>
                 </form>
                 <x-ui.link-button href="{{ route('admin.articles.create') }}">

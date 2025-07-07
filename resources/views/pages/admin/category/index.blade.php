@@ -6,11 +6,11 @@
                 <form action="{{ route('admin.categories.index') }}" method="GET"
                     class="flex flex-col sm:flex-row gap-2">
 
-                    <x-ui.searchbar name="search" placeholder="Cari categories..." value="{{ request('search') }}" />
+                    <x-ui.searchbar name="search" placeholder="Search categories..." value="{{ request('search') }}" />
 
                     <x-ui.button type="submit"
                         class="bg-primary hover:bg-primary-hover text-white font-semibold rounded-md shadow-md transition ease-in-out duration-150">
-                        Cari
+                        Search
                     </x-ui.button>
 
                     <x-ui.link-button href="{{ route('admin.categories.create') }}">

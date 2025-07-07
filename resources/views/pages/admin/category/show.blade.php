@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-semibold">Category Details</h1>
             <div class="flex space-x-2">
                 <x-ui.link-button href="{{ route('admin.categories.index') }}">
-                    Kembali
+                    Back
                 </x-ui.link-button>
                 <x-ui.link-button href="{{ route('admin.categories.edit', $category) }}">
                     Edit

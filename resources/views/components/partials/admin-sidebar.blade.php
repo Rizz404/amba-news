@@ -10,7 +10,7 @@
                     Panel</span>
             </a>
             <button @click="sidebarOpen = false"
-                class="ml-auto lg:hidden text-text-inverted hover:text-accent focus:outline-none"
+                class="ml-auto lg:hidden text-text-inverted hover:text-text-inverted focus:outline-none"
                 aria-label="Close sidebar">
                 <i class="fas fa-times fa-lg"></i>
             </button>
@@ -21,28 +21,28 @@
             <a href="{{ route('admin.dashboard.index') }}"
                 class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.dashboard.index') ? 'bg-primary-active text-text-inverted' : 'text-text-inverted hover:bg-primary-active hover:text-text-inverted' }}">
                 <i
-                    class="fas fa-tachometer-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.dashboard.index') ? 'text-accent' : 'text-text-muted group-hover:text-accent' }}"></i>
+                    class="fa-solid fa-gauge mr-3 h-5 w-5 {{ request()->routeIs('admin.dashboard.index') ? 'text-text-inverted' : 'text-text-muted group-hover:text-text-inverted' }}"></i>
                 Dashboard
             </a>
             {{-- * Categories --}}
             <a href="{{ route('admin.categories.index') }}"
                 class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.categories.index') ? 'bg-primary-active text-text-inverted' : 'text-text-inverted hover:bg-primary-active hover:text-text-inverted' }}">
                 <i
-                    class="fas fa-tachometer-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.categories.index') ? 'text-accent' : 'text-text-muted group-hover:text-accent' }}"></i>
+                    class="fa-solid fa-list mr-3 h-5 w-5 {{ request()->routeIs('admin.categories.index') ? 'text-text-inverted' : 'text-text-muted group-hover:text-text-inverted' }}"></i>
                 Catagories
             </a>
             {{-- * Tags --}}
             <a href="{{ route('admin.tags.index') }}"
                 class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.tags.index') ? 'bg-primary-active text-text-inverted' : 'text-text-inverted hover:bg-primary-active hover:text-text-inverted' }}">
                 <i
-                    class="fas fa-tachometer-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.tags.index') ? 'text-accent' : 'text-text-muted group-hover:text-accent' }}"></i>
+                    class="fa-solid fa-tag mr-3 h-5 w-5 {{ request()->routeIs('admin.tags.index') ? 'text-text-inverted' : 'text-text-muted group-hover:text-text-inverted' }}"></i>
                 Tags
             </a>
             {{-- * Articles --}}
             <a href="{{ route('admin.articles.index') }}"
                 class="group flex items-center px-4 py-2 text-sm font-medium rounded-md {{ request()->routeIs('admin.articles.index') ? 'bg-primary-active text-text-inverted' : 'text-text-inverted hover:bg-primary-active hover:text-text-inverted' }}">
                 <i
-                    class="fas fa-tachometer-alt mr-3 h-5 w-5 {{ request()->routeIs('admin.articles.index') ? 'text-accent' : 'text-text-muted group-hover:text-accent' }}"></i>
+                    class="fa-solid fa-newspaper mr-3 h-5 w-5 {{ request()->routeIs('admin.articles.index') ? 'text-text-inverted' : 'text-text-muted group-hover:text-text-inverted' }}"></i>
                 Articles
             </a>
         </nav>

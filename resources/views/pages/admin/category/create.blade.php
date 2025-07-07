@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-semibold">Create Category</h1>
             <x-ui.link-button href="{{ route('admin.categories.index') }}">
-                Kembali
+                Back
             </x-ui.link-button>
         </div>
 

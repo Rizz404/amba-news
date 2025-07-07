@@ -5,11 +5,11 @@
             <div>
                 <form action="{{ route('admin.tags.index') }}" method="GET" class="flex flex-col sm:flex-row gap-2">
 
-                    <x-ui.searchbar name="search" placeholder="Cari tags..." value="{{ request('search') }}" />
+                    <x-ui.searchbar name="search" placeholder="Search tags..." value="{{ request('search') }}" />
 
                     <x-ui.button type="submit"
                         class="bg-primary hover:bg-primary-hover text-white font-semibold rounded-md shadow-md transition ease-in-out duration-150">
-                        Cari
+                        Search
                     </x-ui.button>
 
                     <x-ui.link-button href="{{ route('admin.tags.create') }}">

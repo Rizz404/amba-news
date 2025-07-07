@@ -1,4 +1,4 @@
-@props(['name' => 'search', 'placeholder' => 'Cari...', 'value' => null])
+@props(['name' => 'search', 'placeholder' => 'Search...', 'value' => null])
 
 <div class="relative">
     <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">

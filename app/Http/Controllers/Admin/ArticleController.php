@@ -104,7 +104,8 @@ class ArticleController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $article->load('tags'); // Eager load tags untuk form
-        return view("pages.admin.article.edit", compact('article', 'categories', 'tags'));
+        $status = Article::ARTICLE_STATUS;
+        return view("pages.admin.article.edit", compact('article', 'categories', 'tags', 'status'));
     }
 
     /**
