@@ -1,50 +1,60 @@
 <x-layouts.app title="Home">
-    <x-partials.user-navbar></x-partials.user-navbar>
+    {{-- NAVBAR --}}
+    <x-partials.user-navbar>
+        @foreach ($categories as $category)
+            <li><a href="#" class="hover:text-orange-500">{{ $category->name }}</a></li>
+        @endforeach
+    </x-partials.user-navbar>
 
+    {{-- CONTENT --}}
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-2 p-4 px-66 lg:grid-cols-3">
         {{-- Kolom Kiri: Daftar Berita --}}
         <div class="space-y-6 lg:col-span-2">
+
+            <?php
+            $newestArticle = $articles->sortByDesc('published_at')->first();
+            ?>
+
             {{-- Card 1: Gambar overlay teks --}}
-            <a href="" class="mx-auto block w-full max-w-md">
+            <a href="{{ route('articles.show', $newestArticle->id) }}" class="mx-auto block w-full max-w-md">
                 <div
                     class="relative w-full overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg">
-                    <img src="https://i.pinimg.com/736x/56/d1/36/56d136a4eb52eaac7fa4e509148690a1.jpg" alt="Gambar Berita"
+                    <img src="{{ asset('storage/' . $newestArticle->featured_image_url) }}" alt="Gambar Berita"
                         class="h-56 w-full object-cover" />
                     <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-3">
-                        <h3 class="text-xl font-semibold text-white drop-shadow-sm">Judul Berita Terkini</h3>
-                        <p class="text-sm text-white drop-shadow-sm">Deskripsi singkat tentang berita yang sedang
-                            trending.</p>
+                        <h3 class="text-xl font-semibold text-white drop-shadow-sm">{{ $newestArticle->title }}</h3>
+                        <p class="text-sm text-white drop-shadow-sm">{{ $newestArticle->excerpt }}</p>
                     </div>
                 </div>
             </a>
 
-            {{-- Card 2: Gambar di kiri, teks di kanan --}}
-            <a href="" class="mx-auto block w-full max-w-md">
-                <div
-                    class="flex w-full overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 hover:shadow-lg">
-                    <img src="https://i.pinimg.com/736x/b4/2c/0e/b42c0ef1a26dd71e4ee9c8d0732b495f.jpg" alt="Gambar"
-                        class="h-auto w-40 object-cover" />
-                    <div class="flex flex-col justify-center p-4">
-                        <h3 class="mb-2 text-lg font-bold text-gray-800">Judul Berita Menarik</h3>
-                        <p class="text-sm text-gray-600">Deskripsi singkat yang menjelaskan isi berita atau konten,
-                            tampil elegan di samping gambar.</p>
+            @foreach ($articles as $article)
+                {{-- Card 2: Gambar di kiri, teks di kanan --}}
+                <a href="{{ route('articles.show', $article->id) }}" class="mx-auto block w-full max-w-md">
+                    <div
+                        class="flex w-full overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 hover:shadow-lg">
+                        <img src="{{ asset('storage/' . $article->featured_image_url) }}" alt="Gambar"
+                            class="h-auto w-40 object-cover" />
+                        <div class="flex flex-col justify-center p-4">
+                            <h3 class="mb-2 text-lg font-bold text-gray-800">{{ $article->title }}</h3>
+                            <p class="text-sm text-gray-600">{{ $article->excerpt }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            @endforeach
 
             {{-- Card 3: Gambar di atas, teks di bawah --}}
-            <a href="" class="mx-auto block w-full max-w-md">
+            {{-- <a href="" class="mx-auto block w-full max-w-md">
                 <div
                     class="w-full overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 hover:shadow-lg">
-                    <img src="https://i.pinimg.com/736x/01/c2/09/01c209e18fd7a17c9c5dcc7a4e03db0e.jpg" alt="Gambar Card"
+                    <img src="{{ asset($article->featured_image_url) }}" alt="Gambar Card"
                         class="h-48 w-full object-cover" />
                     <div class="p-4">
-                        <h3 class="mb-2 text-lg font-bold text-gray-800">Judul Konten</h3>
-                        <p class="text-sm text-gray-600">Deskripsi singkat tentang isi card. Cocok untuk ringkasan
-                            artikel, produk, atau promo.</p>
+                        <h3 class="mb-2 text-lg font-bold text-gray-800">{{ $article->title }}</h3>
+                        <p class="text-sm text-gray-600">{{ $article->excerpt }}</p>
                     </div>
                 </div>
-            </a>
+            </a> --}}
         </div>
 
         {{-- Kolom Kanan: Info Tambahan --}}

@@ -24,16 +24,10 @@
 
         <!-- Category -->
         <ul class="flex space-x-6 text-black">
-            <li><a href="#" class="hover:text-orange-500">Home</a></li>
-            <li><a href="#" class="hover:text-orange-500">News</a></li>
-            <li><a href="#" class="hover:text-orange-500">Sus</a></li>
-            <li><a href="#" class="hover:text-orange-500">Football</a></li>
-            <li><a href="#" class="hover:text-orange-500">TV</a></li>
-            <li><a href="#" class="hover:text-orange-500">Technology</a></li>
+            {{ $slot }}
         </ul>
     </div>
 
     {{-- Horizontal Line --}}
     <hr class="border-gray-300">
 </nav>
-<!-- END NAVBAR -->
