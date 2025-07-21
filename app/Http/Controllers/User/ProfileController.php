@@ -16,4 +16,15 @@ class ProfileController extends Controller
             'user' => User::findOrFail($id)
         ]);
     }
+
+    public function upgradeRole(Request $request, string $id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->role === 'user') {
+            $user->role = 'author';
+            $user->save();
+        }
+        return redirect()->route('profile', $user->id)->with('success', 'Role berhasil diupgrade menjadi author.');
+    }
 }

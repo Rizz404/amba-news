@@ -7,42 +7,80 @@
                 <div>logo</div>
 
                 <!-- Searchbar -->
-                <div class="flex items-center space-x-2">
-                    <input type="text" placeholder="Search news..."
+                <form action="{{ url()->current() }}" method="GET" class="flex items-center space-x-2">
+                    <input type="text" name="search" placeholder="Search news..." value="{{ request('search') }}"
                         class="rounded-full border border-gray-300 w-68 px-4 py-1.5 text-sm focus:outline-orange-300" />
-                    <button
+                    <button type="submit"
                         class="cursor-pointer rounded-full bg-orange-500 px-4 py-1.5 text-sm font-semibold text-white transition">Search</button>
+                    {{-- Keep category param if present --}}
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+                </form>
+            </div>
+
+            {{-- Auth Button --}}
+            {{-- jika belum login --}}
+            @guest
+                <div class="space-x-2">
+                    <a href="{{ route('login') }}" class="hover:text-orange-500">Login</a>
+                    <a href="{{ route('register') }}" class="hover:text-orange-500">Register</a>
                 </div>
-            </div>
+            @endguest
 
-            <!-- Auth Button -->
-            <div class="space-x-2">
-                <a href="{{ route('login') }}" class="hover:text-orange-500">Login</a>
-                <a href="{{ route('register') }}" class="hover:text-orange-500">Register</a>
-            </div>
-        </div>
-        
-        @auth
-<!-- Profile Dropdown -->
-<div class="group relative">
-    <!-- Tombol Profile -->
-    <button class="flex items-center space-x-2 focus:outline-none">
-        <img src="https://i.pravatar.cc/32" class="h-8 w-8 rounded-full" alt="Profile" />
-          <span class="text-gray-700">Profile</span>
-          <svg class="h-4 w-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
+            {{-- Profile Button --}}
+            {{-- jika sudah login --}}
+            @auth
 
-        <!-- Dropdown menu -->
-        <div class="invisible absolute right-0 z-10 mt-2 w-48 rounded-md border bg-white opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:opacity-100">
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Settings</a>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+                <div class="space-x-2">
+
+                    @if (auth()->user()->role === 'author')
+                        <a href="{{ route('user.articles.index') }}" class="hover:text-orange-500">Dashboard</a>
+                    @endif
+
+                    <div class="relative inline-block text-left" id="dropdownContainer">
+                        <button onclick="toggleMenu()"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none cursor-pointer">
+                            <img src="{{ auth()->user()->profile_picture_url ?? 'https://i.pravatar.cc/120' }}"
+                                alt="Profile" class="rounded-full" />
+                        </button>
+
+                        <div id="menu"
+                            class="hidden absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10">
+                            <ul class="py-1">
+                                <li><a href="{{ route('profile', auth()->user()->id) }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                                </li>
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit"
+                                            class="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    function toggleMenu() {
+                        const menu = document.getElementById("menu");
+                        menu.classList.toggle("hidden");
+                    }
+
+                    document.addEventListener("click", function(event) {
+                        const container = document.getElementById("dropdownContainer");
+                        const menu = document.getElementById("menu");
+                        if (!container.contains(event.target)) {
+                            menu.classList.add("hidden");
+                        }
+                    });
+                </script>
+            @endauth
+
         </div>
-    </div>
-    @endauth
-    
+
         <!-- Category -->
         <ul class="flex space-x-6 text-black">
             {{ $slot }}
