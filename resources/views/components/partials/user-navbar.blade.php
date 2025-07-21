@@ -18,10 +18,31 @@
             <!-- Auth Button -->
             <div class="space-x-2">
                 <a href="{{ route('login') }}" class="hover:text-orange-500">Login</a>
-                <a href="#" class="hover:text-orange-500">Register</a>
+                <a href="{{ route('register') }}" class="hover:text-orange-500">Register</a>
             </div>
         </div>
+        
+        @auth
+<!-- Profile Dropdown -->
+<div class="group relative">
+    <!-- Tombol Profile -->
+    <button class="flex items-center space-x-2 focus:outline-none">
+        <img src="https://i.pravatar.cc/32" class="h-8 w-8 rounded-full" alt="Profile" />
+          <span class="text-gray-700">Profile</span>
+          <svg class="h-4 w-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
 
+        <!-- Dropdown menu -->
+        <div class="invisible absolute right-0 z-10 mt-2 w-48 rounded-md border bg-white opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:opacity-100">
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Settings</a>
+            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</a>
+        </div>
+    </div>
+    @endauth
+    
         <!-- Category -->
         <ul class="flex space-x-6 text-black">
             {{ $slot }}
