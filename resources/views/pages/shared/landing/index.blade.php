@@ -18,6 +18,7 @@
         @endforeach
     </x-partials.user-navbar>
 
+<<<<<<< Updated upstream
     @php
         // Filter by category (id) or show all by created_at
         $filteredArticles = request('category')
@@ -51,6 +52,37 @@
 
                 {{-- Card 1: Gambar overlay teks --}}
                 <a href="{{ route('articles.show', $newestArticle->id) }}" class="mx-auto block w-full max-w-md">
+=======
+    {{-- CONTENT --}}
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 p-4 lg:grid-cols-3">
+        {{-- Kolom Kiri: Daftar Berita --}}
+        <div class="space-y-6 lg:col-span-2">
+
+            @php
+                $newestArticle = $articles->sortByDesc('published_at')->first();
+                // Ambil artikel lainnya, lewati yang pertama (terbaru)
+                $otherArticles = $articles->sortByDesc('published_at')->skip(1);
+            @endphp
+
+            {{-- Hanya tampilkan card pertama jika ada artikel terbaru --}}
+            @if ($newestArticle)
+                <a href="{{ route('articles.show', $newestArticle) }}" class="mx-auto block w-full max-w-md">
+                    <div
+                        class="relative w-full overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg">
+                        <img src="{{ asset('storage/' . $newestArticle->featured_image_url) }}" alt="Gambar Berita"
+                            class="h-56 w-full object-cover" />
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/70 to-transparent px-4 py-3">
+                            <h3 class="text-xl font-semibold text-white drop-shadow-sm">{{ $newestArticle->title }}</h3>
+                            <p class="text-sm text-white drop-shadow-sm">{{ $newestArticle->excerpt }}</p>
+                        </div>
+                    </div>
+                </a>
+            @endif
+
+            {{-- Loop artikel lainnya --}}
+            @foreach ($otherArticles as $article)
+                <a href="{{ route('articles.show', $article) }}" class="mx-auto block w-full max-w-md">
+>>>>>>> Stashed changes
                     <div
                         class="relative w-full overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg">
                         <img src="{{ asset('storage/' . $newestArticle->featured_image_url) }}" alt="Gambar Berita"
@@ -62,6 +94,7 @@
                     </div>
                 </a>
 
+<<<<<<< Updated upstream
                 @forelse ($filteredArticles as $article)
                     {{-- Card 2: Gambar di kiri, teks di kanan --}}
                     <a href="{{ route('articles.show', $article->id) }}" class="mx-auto block w-full max-w-md">
@@ -119,6 +152,13 @@
                     </div>
                 </div> --}}
             </div>
+=======
+        </div>
+
+        {{-- Kolom Kanan: Info Tambahan --}}
+        <div class="space-y-4">
+            {{-- ... sisa kolom kanan tidak berubah ... --}}
+>>>>>>> Stashed changes
         </div>
     @endif
 
